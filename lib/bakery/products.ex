@@ -197,4 +197,14 @@ defmodule Bakery.Products do
   def change_ingredient(%Ingredient{} = ingredient, attrs \\ %{}) do
     Ingredient.changeset(ingredient, attrs)
   end
+
+  def count_products do
+    query = from(p in Product, select: count(p.id))
+    Repo.one(query) || 0
+  end
+
+  def latest_product do
+    query = from(p in Product, order_by: [desc: :id], limit: 1)
+    Repo.one(query)
+  end
 end
