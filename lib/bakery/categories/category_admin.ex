@@ -20,7 +20,7 @@ defmodule Bakery.Categories.CategoryAdmin do
       %{
         type: "text",
         title: "Latest Product",
-        order: 5,
+        order: 6,
         content: "The latest product is #{latest_product.title}"
       }
     ]
