@@ -19,18 +19,18 @@ defmodule Bakery.Products.ProductAdmin do
     ]
   end
 
-  # def form_fields(_) do
-  #   [
-  #     title: nil,
-  #     status: %{choices: [{"Available", "available"}, {"Sold out", "soldout"}]},
-  #     category_id: nil,
-  #     description: %{type: :textarea, rows: 4},
-  #     options: nil,
-  #     price: nil,
-  #     quantity: nil,
-  #     views: %{permission: :read}
-  #   ]
-  # end
+  def form_fields(_) do
+    [
+      title: nil,
+      status: %{choices: [{"Available", "available"}, {"Sold out", "soldout"}]},
+      category_id: nil,
+      description: %{type: :richtext, rows: 4},
+      options: nil,
+      price: nil,
+      quantity: nil,
+      views: %{permission: :read}
+    ]
+  end
 
   # def before_save(_, changeset) do
   #   IO.inspect(changeset)

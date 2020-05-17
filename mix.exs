@@ -45,7 +45,7 @@ defmodule Bakery.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:kaffy, "~> 0.5.0"}
+      {:kaffy, "~> 0.5.1"}
     ]
   end
 
