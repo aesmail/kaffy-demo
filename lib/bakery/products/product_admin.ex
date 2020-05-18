@@ -65,6 +65,30 @@ defmodule Bakery.Products.ProductAdmin do
     end
   end
 
+  def list_actions(_) do
+    [
+      soldout: %{name: "Mark as soldout", action: fn _, products -> list_soldout(products) end},
+      restock: %{name: "Bring back", action: fn _, products -> bring_back(products) end},
+      not_good: %{name: "Error me out", action: fn _, _ -> {:error, "Expected error"} end}
+    ]
+  end
+
+  defp list_soldout(products) do
+    for p <- products do
+      Bakery.Products.update_product(p, %{"status" => "soldout"})
+    end
+
+    :ok
+  end
+
+  defp bring_back(products) do
+    for p <- products do
+      Bakery.Products.update_product(p, %{"status" => "available"})
+    end
+
+    :ok
+  end
+
   def widgets(_, _) do
     product_count = Bakery.Products.count_products()
 
