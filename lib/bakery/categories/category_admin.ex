@@ -5,7 +5,7 @@ defmodule Bakery.Categories.CategoryAdmin do
     "Categories"
   end
 
-  def _widgets(_, _) do
+  def widgets(_, _) do
     categories_count = list_categories() |> length()
     latest_product = Bakery.Products.latest_product()
 

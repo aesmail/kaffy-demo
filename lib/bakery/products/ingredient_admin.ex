@@ -1,5 +1,5 @@
 defmodule Bakery.Products.IngredientAdmin do
-  def _widgets(_, _) do
+  def widgets(_, _) do
     demo_content =
       ~s(This is a demo of <a href="https://github.com/aesmail/kaffy">kaffy</a>, the elixir admin package for phoenix applications.)
 
