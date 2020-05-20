@@ -1,36 +1,38 @@
 defmodule Bakery.Products.ProductAdmin do
   import Bakery.Categories, only: [get_category!: 1, list_categories: 0]
 
-  def index(_) do
-    [
-      title: nil,
-      category_id: %{
-        value: fn p -> get_category!(p.category_id).name end,
-        filters: Enum.map(list_categories(), fn c -> {c.name, c.id} end)
-      },
-      price: %{value: fn p -> Decimal.to_string(p.price) end},
-      quantity: nil,
-      status: %{
-        name: "Is it available?",
-        value: fn p -> available?(p) end,
-        filters: [{"Available", "available"}, {"Sold out", "soldout"}]
-      },
-      views: nil
-    ]
-  end
+  # def index(_) do
+  #   [
+  #     id: nil,
+  #     title: nil,
+  #     category_id: %{
+  #       value: fn p -> get_category!(p.category_id).name end,
+  #       filters: Enum.map(list_categories(), fn c -> {c.name, c.id} end)
+  #     },
+  #     price: %{value: fn p -> Decimal.to_string(p.price) end},
+  #     quantity: nil,
+  #     status: %{
+  #       name: "Is it available?",
+  #       value: fn p -> available?(p) end,
+  #       filters: [{"Available", "available"}, {"Sold out", "soldout"}]
+  #     },
+  #     views: nil
+  #   ]
+  # end
 
-  def form_fields(_) do
-    [
-      title: nil,
-      status: %{choices: [{"Available", "available"}, {"Sold out", "soldout"}]},
-      category_id: nil,
-      description: %{type: :richtext, rows: 4},
-      options: nil,
-      price: nil,
-      quantity: nil,
-      views: %{permission: :read}
-    ]
-  end
+  # def form_fields(_) do
+  #   [
+  #     id: nil,
+  #     title: nil,
+  #     status: %{choices: [{"Available", "available"}, {"Sold out", "soldout"}]},
+  #     category_id: nil,
+  #     description: %{type: :richtext, rows: 4},
+  #     options: nil,
+  #     price: nil,
+  #     quantity: nil,
+  #     views: %{permission: :read}
+  #   ]
+  # end
 
   # def before_save(_, changeset) do
   #   IO.inspect(changeset)

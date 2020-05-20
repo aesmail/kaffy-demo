@@ -1,5 +1,6 @@
 defmodule Bakery.Products.Product do
   use Ecto.Schema
+  use Ecto.Schema
   import Ecto.Changeset
 
   schema "products" do
