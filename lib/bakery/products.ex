@@ -207,4 +207,9 @@ defmodule Bakery.Products do
     query = from(p in Product, order_by: [desc: :id], limit: 1)
     Repo.one(query)
   end
+
+  def delete_fake_products do
+    query = from(p in Product, where: ilike(p.title, "%fake%"))
+    Repo.delete_all(query)
+  end
 end

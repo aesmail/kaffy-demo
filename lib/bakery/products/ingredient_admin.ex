@@ -1,12 +1,12 @@
 defmodule Bakery.Products.IngredientAdmin do
   def widgets(_, _) do
     demo_content =
-      ~s(This is a demo of <a href="https://github.com/aesmail/kaffy">kaffy</a>, the elixir admin package for phoenix applications.)
+      ~s(This is a demo of <a href="https://github.com/aesmail/kaffy">kaffy</a>, the elixir admin package for phoenix applications. Add a product with the word "fake" in the title and it will be deleted automatically within 60 seconds. Check the scheduled tasks feature.)
 
     [
       %{
         type: "text",
-        title: "Kaffy v0.6.0",
+        title: "Kaffy v0.7.0",
         order: 5,
         width: 12,
         content: {:safe, demo_content}
