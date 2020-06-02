@@ -25,4 +25,11 @@ defmodule Bakery.Categories.CategoryAdmin do
       }
     ]
   end
+
+  def custom_links(_) do
+    [
+      %{name: "GitHub Repo", url: "https://github.com/aesmail/kaffy", location: :top, order: 1},
+      %{name: "Google Categories", url: "https://www.google.com/?q=popular+categories"}
+    ]
+  end
 end

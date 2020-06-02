@@ -27,6 +27,9 @@ config :logger, :console,
 config :phoenix, :json_library, Jason
 
 config :kaffy,
+  admin_title: "Bakery",
+  hide_dashboard: false,
+  home_page: [schema: ["products", "product"]],
   otp_app: :bakery,
   ecto_repo: Bakery.Repo,
   router: BakeryWeb.Router

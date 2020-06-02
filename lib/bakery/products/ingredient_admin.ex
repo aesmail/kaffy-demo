@@ -6,7 +6,7 @@ defmodule Bakery.Products.IngredientAdmin do
     [
       %{
         type: "text",
-        title: "Kaffy v0.7.1",
+        title: "Kaffy v0.8.0",
         order: 5,
         width: 12,
         content: {:safe, demo_content}

@@ -13,7 +13,7 @@ defmodule Bakery.Products.ProductAdmin do
       quantity: nil,
       status: %{
         name: "Is it available?",
-        value: fn p -> available?(p) end,
+        value: fn p -> {:safe, available?(p)} end,
         filters: [{"Available", "available"}, {"Sold out", "soldout"}]
       },
       views: nil
@@ -22,22 +22,40 @@ defmodule Bakery.Products.ProductAdmin do
 
   def search_fields(_) do
     [
-      :title,
       :description,
       category: [:name]
     ]
   end
 
+  def custom_pages(_schema, _conn) do
+    [
+      %{
+        slug: "my-own-thing",
+        name: "Secret Place",
+        view: BakeryWeb.ProductView,
+        template: "custom_product.html",
+        assigns: [custom_message: "one two three"],
+        order: 2
+      }
+    ]
+  end
+
+  def ordering(_) do
+    [asc: :title]
+  end
+
   def form_fields(_) do
     [
-      title: nil,
+      title: %{update: :readonly},
       status: %{choices: [{"Available", "available"}, {"Sold out", "soldout"}]},
-      category_id: nil,
-      description: %{type: :richtext, rows: 4},
-      options: nil,
+      enough: %{type: :boolean_switch},
+      category_id: %{update: :readonly},
+      description: %{type: :richtext},
+      options: %{create: :hidden},
       price: nil,
       quantity: nil,
-      views: %{permission: :read}
+      views: %{update: :readonly, create: :readonly},
+      inserted_at: nil
     ]
   end
 
@@ -48,8 +66,8 @@ defmodule Bakery.Products.ProductAdmin do
 
   def available?(product) do
     case product.status == "available" do
-      true -> ~s(<span class="badge badge-success"><i class="fas fa-check"><i></span>)
-      false -> ~s(<span class="badge badge-danger"><i class="fas fa-times"></i></span>)
+      true -> ~s(<span class="badge badge-success"><i class="mdi mdi-check"><i></span>)
+      false -> ~s(<span class="badge badge-danger"><i class="mdi mdi-close"></i></span>)
     end
   end
 
@@ -153,6 +171,13 @@ defmodule Bakery.Products.ProductAdmin do
           {:ok, nil}
         end
       }
+    ]
+  end
+
+  def custom_links(_) do
+    [
+      %{location: :top, order: 3, name: "Phoenix Home", url: "https://phoenixframework.org"},
+      %{location: :top, order: 2, name: "Elixir Home", url: "https://elixir-lang.org"}
     ]
   end
 end

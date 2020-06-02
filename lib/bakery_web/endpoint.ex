@@ -30,7 +30,7 @@ defmodule BakeryWeb.Endpoint do
     at: "/kaffy",
     from: :kaffy,
     gzip: false,
-    only: ~w(css img js scss vendor)
+    only: ~w(assets)
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.

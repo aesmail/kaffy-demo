@@ -1,0 +1,17 @@
+<div class="row mt-4">
+    <div class="col-md-12 text-center"><h2>Hello Custom Pages!</h2></div>
+</div>
+
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 text-justify">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam maximus ligula nec urna ornare condimentum. Mauris ornare rhoncus lorem quis semper. Sed pulvinar sed dui eu ultricies. Mauris rutrum vitae felis vitae pharetra. Vestibulum id pellentesque erat, in ullamcorper odio. Duis orci purus, eleifend in consequat congue, fringilla ac nibh. Maecenas eu odio ut eros fringilla eleifend. Sed laoreet elit ut urna tempor, eget maximus erat varius. Nunc porttitor iaculis metus, ac gravida purus pharetra eget. Duis ac congue neque. Integer consectetur velit vel sapien bibendum lacinia. Nullam at neque vehicula lectus mollis consequat. Sed aliquet blandit tellus vitae hendrerit. Etiam cursus nisi sit amet metus ullamcorper, ut pellentesque tortor commodo.
+
+Donec imperdiet, augue quis convallis lacinia, arcu nisi ultrices erat, eu eleifend sem nibh in nulla. Quisque eu risus justo. Vivamus pretium, ipsum at consequat porttitor, mi dolor maximus odio, et scelerisque mauris mi vel metus. Suspendisse a urna justo. Nullam ultricies libero urna, in laoreet magna condimentum a. Quisque sodales, risus ut iaculis suscipit, erat ipsum suscipit turpis, nec interdum massa enim at lectus. Nam eros nulla, facilisis ac interdum vel, ultricies quis metus. Sed accumsan tellus ac nulla dignissim, at vestibulum nisl volutpat. Duis non leo imperdiet, cursus eros a, laoreet lectus. In fermentum venenatis est nec viverra. Sed mattis interdum dui, tempor congue urna ultrices eu. Sed at sollicitudin sapien. Morbi viverra turpis in turpis elementum faucibus. Sed sed viverra quam. Nulla facilisi. Suspendisse tincidunt magna urna, non dignissim tortor sodales ut.
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-12 text-center"><%= @custom_message %></div>
+</div>
