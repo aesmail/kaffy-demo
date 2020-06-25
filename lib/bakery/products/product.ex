@@ -1,18 +1,20 @@
 defmodule Bakery.Products.Product do
   use Ecto.Schema
-  use Ecto.Schema
   import Ecto.Changeset
 
   schema "products" do
     field :price, :decimal
     field :quantity, :integer
     field :status, :string
-    field :enough, :boolean, default: true, virtual: true
+    field :enough, :boolean, default: true
+    # Bakery.URLField
+    field :retail, :string
     field :title, :string
     field :views, :integer, default: 0
     field :options, :map
     field :description, :string
     belongs_to :category, Bakery.Categories.Category
+    # many_to_many :tags, Bakery.Tags.Tag, join_through: Bakery.Products.ProductTag
 
     timestamps()
   end
@@ -26,6 +28,7 @@ defmodule Bakery.Products.Product do
       :quantity,
       :views,
       :price,
+      :retail,
       :status,
       :description,
       :category_id,

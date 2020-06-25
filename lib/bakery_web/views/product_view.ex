@@ -11,10 +11,12 @@ defmodule BakeryWeb.ProductView do
   end
 
   def render("product.json", %{product: product}) do
-    %{id: product.id,
+    %{
+      id: product.id,
       title: product.title,
       quantity: product.quantity,
       price: product.price,
-      status: product.status}
+      status: product.status
+    }
   end
 end

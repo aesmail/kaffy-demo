@@ -28,6 +28,7 @@ defmodule BakeryWeb.Router do
     resources "/categories", CategoryController, except: [:new, :edit]
     resources "/products", ProductController, except: [:new, :edit]
     resources "/ingredients", IngredientController, except: [:new, :edit]
+    resources "/tags", TagController, except: [:new, :edit]
   end
 
   # Enables LiveDashboard only for development

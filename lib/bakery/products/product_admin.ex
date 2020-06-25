@@ -9,6 +9,7 @@ defmodule Bakery.Products.ProductAdmin do
         value: fn p -> get_category!(p.category_id).name end,
         filters: Enum.map(list_categories(), fn c -> {c.name, c.id} end)
       },
+      # retail: nil,
       price: %{value: fn p -> Decimal.to_string(p.price) end},
       quantity: nil,
       status: %{
@@ -27,18 +28,33 @@ defmodule Bakery.Products.ProductAdmin do
     ]
   end
 
-  def custom_pages(_schema, _conn) do
-    [
-      %{
-        slug: "my-own-thing",
-        name: "Secret Place",
-        view: BakeryWeb.ProductView,
-        template: "custom_product.html",
-        assigns: [custom_message: "one two three"],
-        order: 2
-      }
-    ]
-  end
+  # def custom_pages(_schema, _conn, location \\ :sub) do
+  #   [
+  #     %{
+  #       slug: "my-own-thing",
+  #       name: "Secret Place",
+  #       location: :sub,
+  #       authorized?: fn conn, params -> am_i_authorized?(conn, params) end,
+  #       get: fn conn, params -> secret_get(conn, params) end,
+  #       post: fn conn, params -> secret_post(conn, params) end,
+  #       order: 2
+  #     }
+  #   ]
+  #   |> Enum.map(fn page -> Map.merge(%{location: :sub, order: 999}, page) end)
+  #   |> Enum.filter(fn page -> page.location == location end)
+  # end
+
+  # defp am_i_authorized?(_conn, _params) do
+  #   true
+  # end
+
+  # defp secret_get(_conn, _params) do
+  #   {BakeryWeb.ProductView, "custom_product.html", [custom_message: "Hello World"]}
+  # end
+
+  # defp secret_post(_conn, _params) do
+  #   {BakeryWeb.ProductView, "custom_product.html", [custom_message: "Goodbye World"]}
+  # end
 
   def ordering(_) do
     [asc: :title]
@@ -49,12 +65,14 @@ defmodule Bakery.Products.ProductAdmin do
       title: %{update: :readonly},
       status: %{choices: [{"Available", "available"}, {"Sold out", "soldout"}]},
       enough: %{type: :boolean_switch},
+      # retail: nil,
       category_id: %{update: :readonly},
       description: %{type: :richtext},
       options: %{create: :hidden},
       price: nil,
       quantity: nil,
       views: %{update: :readonly, create: :readonly},
+      tags: nil,
       inserted_at: nil
     ]
   end
@@ -94,10 +112,28 @@ defmodule Bakery.Products.ProductAdmin do
 
   def list_actions(_) do
     [
+      change_price: %{
+        name: "Change the price",
+        inputs: [
+          %{name: "new_price", title: "New Price", default: "3"}
+        ],
+        action: fn _conn, products, params -> change_price(products, params) end
+      },
       soldout: %{name: "Mark as soldout", action: fn _, products -> list_soldout(products) end},
       restock: %{name: "Bring back", action: fn _, products -> bring_back(products) end},
       not_good: %{name: "Error me out", action: fn _, _ -> {:error, "Expected error"} end}
     ]
+  end
+
+  defp change_price(products, params) do
+    new_price = Map.get(params, "new_price") |> Decimal.new()
+
+    Enum.map(products, fn p ->
+      Ecto.Changeset.change(p, %{price: new_price})
+      |> Bakery.Repo.update()
+    end)
+
+    :ok
   end
 
   defp list_soldout(products) do
@@ -176,7 +212,13 @@ defmodule Bakery.Products.ProductAdmin do
 
   def custom_links(_) do
     [
-      %{location: :top, order: 3, name: "Phoenix Home", url: "https://phoenixframework.org"},
+      %{
+        location: :top,
+        method: :get,
+        order: 3,
+        name: "Phoenix Home",
+        url: "https://phoenixframework.org"
+      },
       %{location: :top, order: 2, name: "Elixir Home", url: "https://elixir-lang.org"}
     ]
   end

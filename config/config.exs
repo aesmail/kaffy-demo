@@ -29,10 +29,18 @@ config :phoenix, :json_library, Jason
 config :kaffy,
   admin_title: "Bakery",
   hide_dashboard: false,
-  home_page: [schema: ["products", "product"]],
+  # home_page: [schema: ["products", "product"]],
   otp_app: :bakery,
   ecto_repo: Bakery.Repo,
-  router: BakeryWeb.Router
+  router: BakeryWeb.Router,
+  scheduled_tasks: [
+    Bakery.Kaffy.Tasks
+  ],
+  extensions: [
+    Bakery.Kaffy.Extension
+  ]
+
+# resources: &Bakery.Kaffy.Resources.build_resources/1
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
