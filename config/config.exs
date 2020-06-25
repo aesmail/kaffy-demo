@@ -38,9 +38,8 @@ config :kaffy,
   ],
   extensions: [
     Bakery.Kaffy.Extension
-  ]
-
-# resources: &Bakery.Kaffy.Resources.build_resources/1
+  ],
+  resources: &Bakery.Kaffy.Resources.build_resources/1
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
