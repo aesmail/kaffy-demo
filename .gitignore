@@ -31,3 +31,6 @@ bakery-*.tar
 .DS_Store
 .vscode
 .elixir_ls
+
+# Local dev files
+run-locally.sh
