@@ -2,8 +2,8 @@ use Mix.Config
 
 # Configure your database
 config :bakery, Bakery.Repo,
-  username: "kashout",
-  password: "kashout",
+  username: System.get_env("DB_USERNAME", "kashout"),
+  password: System.get_env("DB_PASSWORD", "kashout"),
   database: "bakery_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,

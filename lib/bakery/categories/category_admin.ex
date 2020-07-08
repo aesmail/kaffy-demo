@@ -10,6 +10,7 @@ defmodule Bakery.Categories.CategoryAdmin do
   def widgets(_, _) do
     categories_count = list_categories() |> length()
     latest_product = Bakery.Products.latest_product()
+    latest_title = if (latest_product), do: latest_product.title, else: "No Product"
 
     [
       %{
@@ -23,7 +24,7 @@ defmodule Bakery.Categories.CategoryAdmin do
         type: "text",
         title: "Latest Product",
         order: 6,
-        content: "The latest product is #{latest_product.title}"
+        content: "The latest product is #{latest_title}"
       }
     ]
   end
