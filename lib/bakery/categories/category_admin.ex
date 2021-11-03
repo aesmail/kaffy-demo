@@ -9,7 +9,7 @@ defmodule Bakery.Categories.CategoryAdmin do
 
   def widgets(_, _) do
     categories_count = list_categories() |> length()
-    latest_product = Bakery.Products.latest_product()
+    latest_product = Bakery.Products.latest_product() || %{title: "nothing"}
 
     [
       %{
