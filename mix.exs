@@ -35,7 +35,7 @@ defmodule Bakery.MixProject do
     [
       {:phoenix, "~> 1.5.1"},
       {:phoenix_ecto, "~> 4.1"},
-      {:ecto_sql, "~> 3.4"},
+      {:ecto_sql, "~> 3.7.1"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 2.11"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
@@ -45,8 +45,8 @@ defmodule Bakery.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      # {:kaffy, "~> 0.8.1"}
-      {:kaffy, path: "../kaffy"}
+      {:kaffy, "~> 0.9.0"}
+      # {:kaffy, path: "../kaffy"}
     ]
   end
 
