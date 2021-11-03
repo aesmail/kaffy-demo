@@ -30,7 +30,8 @@ defmodule Bakery.Categories.CategoryAdmin do
 
   def custom_links(_) do
     [
-      %{name: "GitHub Repo", url: "https://github.com/aesmail/kaffy", location: :top, order: 1},
+      %{name: "Demo Repo", url: "https://github.com/aesmail/kaffy-demo", location: :top, order: 1}
+      %{name: "Kaffy Repo", url: "https://github.com/aesmail/kaffy", location: :top, order: 2},
       %{name: "Google Categories", url: "https://www.google.com/?q=popular+categories"}
     ]
   end
