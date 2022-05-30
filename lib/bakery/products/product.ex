@@ -14,7 +14,7 @@ defmodule Bakery.Products.Product do
     field :options, :map
     field :description, :string
     belongs_to :category, Bakery.Categories.Category
-    # many_to_many :tags, Bakery.Tags.Tag, join_through: Bakery.Products.ProductTag
+    many_to_many :tags, Bakery.Tags.Tag, join_through: Bakery.Products.ProductTag
 
     timestamps()
   end
@@ -40,16 +40,12 @@ defmodule Bakery.Products.Product do
   end
 
   defp default_title(changeset) do
-    cs =
-      case get_field(changeset, :title) do
-        nil ->
-          put_change(changeset, :title, "Your Title Goes Here")
+    case get_field(changeset, :title) do
+      nil ->
+        put_change(changeset, :title, "Your Title Goes Here")
 
-        _ ->
-          changeset
-      end
-
-    IO.inspect(cs.data)
-    cs
+      _ ->
+        changeset
+    end
   end
 end

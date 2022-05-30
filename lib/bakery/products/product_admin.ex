@@ -60,7 +60,9 @@ defmodule Bakery.Products.ProductAdmin do
     [asc: :title]
   end
 
-  def form_fields(_) do
+  def form_fields(conn) do
+    IO.inspect(conn, label: "conn")
+
     [
       title: %{update: :readonly},
       status: %{choices: [{"Available", "available"}, {"Sold out", "soldout"}]},
@@ -72,7 +74,7 @@ defmodule Bakery.Products.ProductAdmin do
       price: nil,
       quantity: nil,
       views: %{update: :readonly, create: :readonly},
-      tags: nil,
+      # tags: nil,
       inserted_at: nil
     ]
   end
