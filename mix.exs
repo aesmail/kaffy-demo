@@ -33,20 +33,20 @@ defmodule Bakery.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.5.1"},
+      {:phoenix, "~> 1.6.10"},
       {:phoenix_ecto, "~> 4.1"},
-      {:ecto_sql, "~> 3.7.1"},
+      {:ecto_sql, "~> 3.8.2"},
       {:postgrex, ">= 0.0.0"},
-      {:phoenix_html, "~> 2.11"},
-      {:phoenix_live_reload, "~> 1.2", only: :dev},
-      {:phoenix_live_dashboard, "~> 0.2.0"},
+      {:phoenix_html, "~> 2.11 or ~> 3.0"},
+      {:phoenix_live_reload, "~> 1.3", only: :dev},
+      {:phoenix_live_dashboard, "~> 0.6.5"},
       {:telemetry_metrics, "~> 0.4"},
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:kaffy, "~> 0.9.0"}
-      # {:kaffy, path: "../kaffy"}
+      # {:kaffy, "~> 0.9.0"}
+      {:kaffy, path: "../kaffy"}
     ]
   end
 

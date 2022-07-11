@@ -13,7 +13,7 @@ defmodule BakeryWeb.Router do
     plug :accepts, ["json"]
   end
 
-  use Kaffy.Routes
+  use Kaffy.Adapters.Data.Ecto.Routes
 
   scope "/", BakeryWeb do
     pipe_through :browser

@@ -33,14 +33,14 @@ config :kaffy,
   otp_app: :bakery,
   ecto_repo: Bakery.Repo,
   router: BakeryWeb.Router,
+  resources: &Kaffy.Adapters.Data.Ecto.Adapter.resources/1,
+  data_adapter: Kaffy.Adapters.Data.Ecto.Adapter,
   scheduled_tasks: [
     Bakery.Kaffy.Tasks
   ],
   extensions: [
     Bakery.Kaffy.Extension
   ]
-
-# resources: &Bakery.Kaffy.Resources.build_resources/1
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
