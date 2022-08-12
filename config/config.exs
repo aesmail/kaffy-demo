@@ -34,9 +34,9 @@ config :kaffy,
   ecto_repo: Bakery.Repo,
   router: BakeryWeb.Router,
   data_adapter: Kaffy.DataAdapters.Ecto.EctoAdapter,
-  # scheduled_tasks: [
-  #   Bakery.Kaffy.Tasks
-  # ],
+  scheduled_tasks: [
+    Bakery.Kaffy.Tasks
+  ],
   extensions: [
     Bakery.Kaffy.Extension
   ]
