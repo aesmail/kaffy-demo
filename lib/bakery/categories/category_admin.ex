@@ -33,10 +33,10 @@ defmodule Bakery.Categories.CategoryAdmin do
       %{
         name: "Demo Repo",
         url: "https://github.com/aesmail/kaffy-demo",
-        location: :top,
+        location: :bottom,
         order: 1
       },
-      %{name: "Kaffy Repo", url: "https://github.com/aesmail/kaffy", location: :top, order: 2},
+      %{name: "Kaffy Repo", url: "https://github.com/aesmail/kaffy", location: :bottom, order: 2},
       %{name: "Google Categories", url: "https://www.google.com/?q=popular+categories"}
     ]
   end

@@ -113,6 +113,10 @@ defmodule Bakery.Products.ProductAdmin do
   end
 
   def list_actions(_) do
+    products =
+      Bakery.Categories.list_categories()
+      |> Enum.map(fn %{id: id, name: name} -> [name, id] end)
+
     [
       change_price: %{
         name: "Change the price",
@@ -123,7 +127,23 @@ defmodule Bakery.Products.ProductAdmin do
       },
       soldout: %{name: "Mark as soldout", action: fn _, products -> list_soldout(products) end},
       restock: %{name: "Bring back", action: fn _, products -> bring_back(products) end},
-      not_good: %{name: "Error me out", action: fn _, _ -> {:error, "Expected error"} end}
+      not_good: %{name: "Error me out", action: fn _, _ -> {:error, "Expected error"} end},
+      copy_products: %{
+        name: "Change Category",
+        inputs: [
+          %{name: "new_category", title: "Select Category", use_select: true, options: products}
+        ],
+        action: fn _conn, products, params ->
+          category_id = Map.get(params, "new_category") |> String.to_integer()
+
+          Enum.map(products, fn p ->
+            Ecto.Changeset.change(p, %{category_id: category_id})
+            |> Bakery.Repo.update()
+          end)
+
+          :ok
+        end
+      }
     ]
   end
 
@@ -215,13 +235,13 @@ defmodule Bakery.Products.ProductAdmin do
   def custom_links(_) do
     [
       %{
-        location: :top,
+        location: :bottom,
         method: :get,
         order: 3,
         name: "Phoenix Home",
         url: "https://phoenixframework.org"
       },
-      %{location: :top, order: 2, name: "Elixir Home", url: "https://elixir-lang.org"}
+      %{location: :bottom, order: 2, name: "Elixir Home", url: "https://elixir-lang.org"}
     ]
   end
 end

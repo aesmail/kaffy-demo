@@ -45,8 +45,8 @@ defmodule Bakery.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:kaffy, "~> 0.9.2"}
-      # {:kaffy, path: "../kaffy"}
+      {:kaffy, "~> 0.9.3"}
+      # {:kaffy, github: "aesmail/kaffy"}
     ]
   end
 
