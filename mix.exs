@@ -7,7 +7,7 @@ defmodule Bakery.MixProject do
       version: "0.4.0",
       elixir: "~> 1.10",
       elixirc_paths: elixirc_paths(Mix.env()),
-      compilers: [:phoenix, :gettext] ++ Mix.compilers(),
+      compilers: Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps()
@@ -33,7 +33,7 @@ defmodule Bakery.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:phoenix, "~> 1.6"},
+      {:phoenix, "~> 1.6.15"},
       {:phoenix_ecto, "~> 4.4"},
       {:ecto_sql, "~> 3.8.0"},
       {:postgrex, ">= 0.0.0"},
@@ -45,8 +45,9 @@ defmodule Bakery.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:kaffy, "~> 0.9.3"}
-      # {:kaffy, github: "aesmail/kaffy"}
+      {:kaffy, github: "aesmail/kaffy"}
+      # {:kaffy, "~> 0.9.3"}
+      # {:kaffy, path: "../kaffy"}
     ]
   end
 

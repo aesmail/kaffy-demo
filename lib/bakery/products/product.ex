@@ -8,6 +8,8 @@ defmodule Bakery.Products.Product do
     field :status, :string
     field :enough, :boolean, default: true
     # Bakery.URLField
+    field :type, Ecto.Enum, values: [service: 1, digital: 2, physical: 3]
+    field :notes, {:array, :string}
     field :retail, :string
     field :title, :string
     field :views, :integer, default: 0
@@ -30,6 +32,8 @@ defmodule Bakery.Products.Product do
       :price,
       :retail,
       :status,
+      :type,
+      :notes,
       :description,
       :category_id,
       :options,

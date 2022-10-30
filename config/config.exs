@@ -33,7 +33,7 @@ config :kaffy,
   otp_app: :bakery,
   ecto_repo: Bakery.Repo,
   router: BakeryWeb.Router,
-  data_adapter: Kaffy.DataAdapters.Ecto.EctoAdapter,
+  # data_adapter: Kaffy.DataAdapters.Ecto.EctoAdapter,
   scheduled_tasks: [
     Bakery.Kaffy.Tasks
   ],

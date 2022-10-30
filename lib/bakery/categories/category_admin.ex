@@ -37,7 +37,11 @@ defmodule Bakery.Categories.CategoryAdmin do
         order: 1
       },
       %{name: "Kaffy Repo", url: "https://github.com/aesmail/kaffy", location: :bottom, order: 2},
-      %{name: "Google Categories", url: "https://www.google.com/?q=popular+categories"}
+      %{
+        name: ~s(Google: kaffy admin),
+        url: "https://www.google.com/?q=kaffy+admin",
+        data: [confirm: "You will be taken to google search page."]
+      }
     ]
   end
 end

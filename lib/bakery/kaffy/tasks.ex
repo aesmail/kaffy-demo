@@ -1,4 +1,6 @@
 defmodule Bakery.Kaffy.Tasks do
+  def title(), do: "Repeated Chores"
+
   def task_cache_product_count() do
     %{
       name: "Cache Product Count",

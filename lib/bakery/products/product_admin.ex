@@ -60,14 +60,13 @@ defmodule Bakery.Products.ProductAdmin do
     [asc: :title]
   end
 
-  def form_fields(conn) do
-    IO.inspect(conn, label: "conn")
-
+  def form_fields(_conn) do
     [
       title: %{update: :readonly},
       status: %{choices: [{"Available", "available"}, {"Sold out", "soldout"}]},
       enough: %{type: :boolean_switch},
       # retail: nil,
+      type: nil,
       category_id: %{update: :readonly},
       description: %{type: :richtext},
       options: %{create: :hidden},
@@ -239,9 +238,16 @@ defmodule Bakery.Products.ProductAdmin do
         method: :get,
         order: 3,
         name: "Phoenix Home",
-        url: "https://phoenixframework.org"
+        url: "https://phoenixframework.org",
+        data: [confirm: "You can configure this message."]
       },
-      %{location: :bottom, order: 2, name: "Elixir Home", url: "https://elixir-lang.org"}
+      %{
+        location: :bottom,
+        order: 2,
+        name: "Elixir Home",
+        url: "https://elixir-lang.org",
+        data: [confirm: "This alert message is customizable."]
+      }
     ]
   end
 end
