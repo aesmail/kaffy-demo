@@ -1,4 +1,4 @@
-# fly.toml file generated for kaffy on 2022-05-28T09:21:17+03:00
+# fly.toml file generated for kaffy on 2022-10-30T13:51:41+03:00
 
 app = "kaffy"
 
