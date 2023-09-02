@@ -5,7 +5,7 @@ defmodule Bakery.MixProject do
     [
       app: :bakery,
       version: "0.5.0",
-      elixir: "~> 1.10",
+      elixir: "~> 1.13",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -35,7 +35,7 @@ defmodule Bakery.MixProject do
     [
       {:phoenix, "~> 1.6.15"},
       {:phoenix_ecto, "~> 4.4"},
-      {:ecto_sql, "~> 3.8.0"},
+      {:ecto_sql, "~> 3.10.0"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 2.11 or ~> 3.0"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
@@ -45,7 +45,7 @@ defmodule Bakery.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:kaffy, github: "aesmail/kaffy"}
+      {:kaffy, "~> 0.10.0-rc.0"}
       # {:kaffy, "~> 0.9.3"}
       # {:kaffy, path: "../kaffy"}
     ]

@@ -9,7 +9,7 @@ defmodule Bakery.Products.IngredientAdmin do
     [
       %{
         type: "text",
-        title: "Kaffy v0.9.4",
+        title: "Kaffy #{Application.spec(:kaffy, :vsn) |> to_string()}",
         order: 5,
         width: 6,
         content: {:safe, version_content}
