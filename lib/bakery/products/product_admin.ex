@@ -11,6 +11,8 @@ defmodule Bakery.Products.ProductAdmin do
       },
       # retail: nil,
       price: %{value: fn p -> Decimal.to_string(p.price) end},
+      type: nil,
+      measurements: nil,
       quantity: nil,
       status: %{
         name: "Is it available?",
@@ -67,6 +69,7 @@ defmodule Bakery.Products.ProductAdmin do
       enough: %{type: :boolean_switch},
       # retail: nil,
       type: nil,
+      measurements: nil,
       category_id: %{update: :readonly},
       description: %{type: :richtext},
       options: %{create: :hidden},

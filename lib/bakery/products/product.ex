@@ -9,6 +9,7 @@ defmodule Bakery.Products.Product do
     field :enough, :boolean, default: true
     # Bakery.URLField
     field :type, Ecto.Enum, values: [service: 1, digital: 2, physical: 3]
+    field :measurements, {:array, Ecto.Enum}, values: [weight: "good", over_weight: "over"]
     field :notes, {:array, :string}
     field :retail, :string
     field :title, :string
@@ -33,6 +34,7 @@ defmodule Bakery.Products.Product do
       :retail,
       :status,
       :type,
+      :measurements,
       :notes,
       :description,
       :category_id,
